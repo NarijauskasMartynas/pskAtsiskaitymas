@@ -18,10 +18,6 @@ public class LeagueDAO {
     public League getLeagueById(Integer id) {
         return entityManager.find(League.class, id);
     }
-
-    public void UpdateLeague(League league){
-        entityManager.merge(league);
-    }
 }
 
 

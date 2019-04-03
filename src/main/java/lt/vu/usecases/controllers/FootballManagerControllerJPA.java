@@ -28,9 +28,6 @@ public class FootballManagerControllerJPA {
     private League league = new League();
 
     @Getter
-    private List<Player> players;
-
-    @Getter
     private List<Team> teams;
 
     @PostConstruct
@@ -53,7 +50,7 @@ public class FootballManagerControllerJPA {
         player.setTeam(team);
         playerDAO.create(player);
     }
-
+//komentaras
     @Transactional
     public void CreateNewTeam(){
         leagueDAO.getLeagueById(league.getId());
