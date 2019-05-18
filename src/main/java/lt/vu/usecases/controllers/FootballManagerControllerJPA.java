@@ -46,16 +46,17 @@ public class FootballManagerControllerJPA {
 
     @Transactional
     public void signNewPlayer(){
-        teamDAO.getTeamById(team.getId());
-        player.setTeam(team);
+        Team newTeam = teamDAO.getTeamById(this.team.getId());
+        newTeam.getPlayers().add(player);
+        player.setTeam(newTeam);
         playerDAO.create(player);
     }
-//komentaras
+
     @Transactional
     public void CreateNewTeam(){
-        leagueDAO.getLeagueById(league.getId());
+        League newLeague = leagueDAO.getLeagueById(league.getId());
         List<League> leagueList = new ArrayList<>();
-        leagueList.add(league);
+        leagueList.add(newLeague);
         team.setLeagues(leagueList);
         teamDAO.createTeam(team);
     }

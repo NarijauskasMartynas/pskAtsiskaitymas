@@ -3,6 +3,7 @@ package lt.vu.entities;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.johnzon.mapper.JohnzonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,6 +27,12 @@ public class Player implements Serializable {
     private String fullName;
 
     @JoinColumn(name = "TEAM_ID", referencedColumnName = "ID")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JohnzonIgnore
     private Team team;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    @JohnzonIgnore
+    private Integer optLockVersion;
 }

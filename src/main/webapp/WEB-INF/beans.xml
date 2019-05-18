@@ -8,5 +8,14 @@
 
     <alternatives>
         <class>org.apache.deltaspike.jpa.impl.transaction.ContainerManagedTransactionStrategy</class>
+        <class>lt.vu.usecases.rest.AltPlayerRestService</class>
     </alternatives>
+
+    <interceptors>
+        <class>lt.vu.usecases.interceptor.InterceptorImpl</class>
+    </interceptors>
+
+    <decorators>
+        <class>lt.vu.usecases.decorator.AsyncComponentDecorator</class>
+    </decorators>
 </beans>

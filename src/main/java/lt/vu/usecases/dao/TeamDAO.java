@@ -25,4 +25,9 @@ public class TeamDAO {
     public void createTeam(Team team){
         entityManager.persist(team);
     }
+
+    public void updateTeam(Team team){
+        entityManager.merge(team);
+    }
+
 }

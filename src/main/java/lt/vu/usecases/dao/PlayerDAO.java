@@ -14,4 +14,17 @@ public class PlayerDAO {
     private EntityManager entityManager;
 
     public void create(Player player) {entityManager.persist(player);}
+
+    public List<Player> getAllPlayers() {
+        return entityManager.createNamedQuery("Player.findAll", Player.class).getResultList();
+    }
+
+    public void updateAndFlush(Player player) {
+        entityManager.merge(player);
+        entityManager.flush();
+    }
+
+    public Player findById(Integer id){
+      return entityManager.find(Player.class, id);
+    }
 }
